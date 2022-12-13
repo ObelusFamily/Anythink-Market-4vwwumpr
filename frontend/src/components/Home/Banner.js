@@ -1,13 +1,13 @@
-import React from 'react';
-import logo from '../../imgs/logo.png';
-import agent from '../../agent';
+import React from "react";
+import logo from "../../imgs/logo.png";
+import agent from "../../agent";
 
 const Banner = (props) => {
   const onSearchChange = (event) => {
     props.onSearchFilter(
       event.target.value,
       (page) => agent.Items.byTitle(event.target.value),
-      agent.Items.byTitle(event.target.value),
+      agent.Items.byTitle(event.target.value)
     );
   };
 

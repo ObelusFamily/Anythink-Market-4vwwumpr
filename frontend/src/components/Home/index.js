@@ -1,15 +1,15 @@
-import Banner from './Banner';
-import MainView from './MainView';
-import React from 'react';
-import Tags from './Tags';
-import agent from '../../agent';
-import { connect } from 'react-redux';
+import Banner from "./Banner";
+import MainView from "./MainView";
+import React from "react";
+import Tags from "./Tags";
+import agent from "../../agent";
+import { connect } from "react-redux";
 import {
   HOME_PAGE_LOADED,
   HOME_PAGE_UNLOADED,
   APPLY_TAG_FILTER,
   APPLY_TITLE_FILTER,
-} from '../../constants/actionTypes';
+} from "../../constants/actionTypes";
 
 const Promise = global.Promise;
 
@@ -31,13 +31,13 @@ const mapDispatchToProps = (dispatch) => ({
 
 class Home extends React.Component {
   componentWillMount() {
-    const tab = 'all';
+    const tab = "all";
     const itemsPromise = agent.Items.all;
 
     this.props.onLoad(
       tab,
       itemsPromise,
-      Promise.all([agent.Tags.getAll(), itemsPromise()]),
+      Promise.all([agent.Tags.getAll(), itemsPromise()])
     );
   }
 
