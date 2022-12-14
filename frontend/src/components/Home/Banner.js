@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import logo from '../../imgs/logo.png';
-import agent from '../../agent';
+import React, { useState } from "react";
+import logo from "../../imgs/logo.png";
+import agent from "../../agent";
 
 const Banner = (props) => {
   const [searchVisible, setSearchVisible] = useState(false);
@@ -8,7 +8,7 @@ const Banner = (props) => {
     props.onSearchFilter(
       event.target.value,
       (page) => agent.Items.byTitle(event.target.value),
-      agent.Items.byTitle(event.target.value),
+      agent.Items.byTitle(event.target.value)
     );
   };
 
