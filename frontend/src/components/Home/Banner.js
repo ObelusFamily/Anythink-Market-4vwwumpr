@@ -1,13 +1,14 @@
-import React from "react";
-import logo from "../../imgs/logo.png";
-import agent from "../../agent";
+import React, { useState } from 'react';
+import logo from '../../imgs/logo.png';
+import agent from '../../agent';
 
 const Banner = (props) => {
+  const [searchVisible, setSearchVisible] = useState(false);
   const onSearchChange = (event) => {
     props.onSearchFilter(
       event.target.value,
       (page) => agent.Items.byTitle(event.target.value),
-      agent.Items.byTitle(event.target.value)
+      agent.Items.byTitle(event.target.value),
     );
   };
 
@@ -17,17 +18,22 @@ const Banner = (props) => {
         <img src={logo} alt="banner" />
         <div>
           <span>A place to </span>
-          <span id="get-part">get</span>
-          <form>
-            <input
-              type="text"
-              id="search-box"
-              className="w-[250px]"
-              placeholder="What is it that you truly desire?"
-              name="term"
-              onChange={onSearchChange}
-            />
-          </form>
+          <span id="get-part" onClick={() => setSearchVisible(true)}>
+            get
+          </span>
+          {searchVisible && (
+            <form>
+              <input
+                type="text"
+                id="search-box"
+                className="w-[250px]"
+                placeholder="What is it that you truly desire?"
+                name="term"
+                onChange={onSearchChange}
+              />
+            </form>
+          )}
+
           <span> the cool stuff.</span>
         </div>
       </div>
