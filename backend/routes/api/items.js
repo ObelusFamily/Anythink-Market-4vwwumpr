@@ -8,11 +8,18 @@ const { sendEvent } = require('../../lib/event');
 const { Configuration, OpenAIApi } = require('openai');
 
 const configuration = new Configuration({
-  organization: 'org-PBQKGZGXfThCDUSEWz4r7zlp',
   apiKey: process.env.OPENAI_API_KEY,
 });
 
 const openai = new OpenAIApi(configuration);
+let view = async function (req) {
+  const test = await openai.createImage({
+    prompt: req.body.item.title,
+    n: 2,
+    size: '256x256',
+  });
+  return test.data.data[0].url;
+};
 
 // Preload item objects on routes with ':item'
 router.param('item', function (req, res, next, slug) {
