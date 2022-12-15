@@ -166,8 +166,6 @@ router.post('/', auth.required, function (req, res, next) {
         item.image = generatedImage.data.data[0].url;
       }
 
-      console.log(item.image);
-
       item.seller = user;
 
       return item.save().then(function () {
