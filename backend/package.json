@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "newman": "^3.8.2",
+    "newrelic": "^9.7.4",
     "nodemon": "^1.11.0"
   }
 }
